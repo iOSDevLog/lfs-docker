@@ -1,4 +1,4 @@
-![LFS in VirtualBox](https://user-images.githubusercontent.com/1611077/33808510-16825dd2-dde8-11e7-9a1c-0ca0bc3ff2b5.png)
+![LFS 8.2 in VirtualBox](./screenshots/lfs-8.2.png)
 
 ## Description
 
@@ -47,3 +47,59 @@ If you have problems with master branch, please try to use stable version from t
 
 This work is based on instructions from [Linux from Scratch](http://www.linuxfromscratch.org/lfs)
 project and provided with MIT license.
+
+## Linux From Scratch Docker
+
+[reinterpretcat/lfs](https://github.com/reinterpretcat/lfs)
+
+```bash
+libgmp.la: not found
+libmpfr.la: not found
+libmpc.la: not found
+/mnt/lfs/sources /mnt/lfs/sources
+Assume toolchain from host is already placed in sources folder
+/mnt/lfs/sources
+Building binutils..
+Approximate build time: 1 SBU
+Required disk space: 547 MB
+tar: binutils-*.tar.xz: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+```
+
+put to `lfs/toolchain`
+
+[](https://udomain.dl.sourceforge.net/project/bzip2/bzip2-1.0.6.tar.gz)
+
+```bash
+/mnt/lfs/sources
+Building bzip2..
+Approximate build time: less than 0.1 SBU
+Required disk space: 5.2 MBg
+zip: stdin: not in gzip format
+tar: Child returned status 1
+tar: Error is not recoverable: exiting now
+```
+
+### bzip2 文件错误，重新下载
+
+```bash
+wget -c [https://udomain.dl.sourceforge.net/project/bzip2/bzip2-1.0.6.tar.gz](https://udomain.dl.sourceforge.net/project/bzip2/bzip2-1.0.6.tar.gz)
+```
+
+### syslinux
+
+```bash
+Start building bootable image..
+/tmp /mnt/lfs/sources
+Configuring syslinux..
+tar: /mnt/lfs/sources/syslinux-*.tar.xz: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+```
+
+[[syslinux] How to create a Bootable Live CD/DVD from your Linux From Scratch (LFS) build](https://www.syslinux.org/archives/2020-March/026620.html)
+
+[reinterpretcat/lfs](https://github.com/reinterpretcat/lfs/blob/master/scripts/image/1.configure-syslinux.sh)
+
+```bash
+wget -c https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/syslinux-6.03.tar.xz
+```
